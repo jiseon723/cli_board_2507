@@ -10,8 +10,13 @@ public class Main {
             System.out.printf("명령) ");
             String command = sc.nextLine();
 
-            if(command.equals("종료")){
+            if (command.equals("종료")){
                 break;
+            } else if (command.equals("등록")){
+                System.out.printf("제목: ");
+                String title = sc.nextLine();
+                System.out.printf("내용: ");
+                String content = sc.nextLine();
             }
         }
 
