@@ -17,6 +17,9 @@ public class Main {
                 String title = sc.nextLine();
                 System.out.printf("내용: ");
                 String content = sc.nextLine();
+
+                System.out.printf("1번 게시글이 등록되었습니다.");
+
             }
         }
 
