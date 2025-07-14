@@ -5,13 +5,14 @@ import java.util.Scanner;
 
 public class APP {
     Scanner sc;
+    List<Article> articleList = new ArrayList<>();
     APP(Scanner sc) {
         this.sc = sc;
     }
 
     public void run () {
         int lastId = 1;
-        List<Article> articleList = new ArrayList<>();
+
         System.out.println("== 게시판 앱 ==");
 
         while (true){
@@ -46,13 +47,7 @@ public class APP {
                 String value = paramsStr[1];
                 int idx = Integer.parseInt(value);
 
-                Article article = null;
-
-                for (int i = 0; i < articleList.size(); i++) {
-                    if (articleList.get(i).getId() == idx) {
-                        article = articleList.get(i);
-                    }
-                }
+                Article article = _getFindById(idx);
 
                 if(article == null){
                     System.out.printf("%d번 게시물은 존재하지 않습니다.\n", idx);
@@ -67,13 +62,7 @@ public class APP {
                 String value = paramsStr[1];
                 int idx = Integer.parseInt(value);
 
-                Article article = null;
-
-                for (Article item : articleList){
-                    if (item.getId() == idx){
-                        article = item;
-                    }
-                }
+                Article article = _getFindById(idx);
 
                 if(article == null){
                     System.out.printf("%d번 게시물은 존재하지 않습니다.\n", idx);
@@ -92,5 +81,14 @@ public class APP {
                 }
             }
         }
+    }
+
+    private Article _getFindById(int id) {
+        for (Article item : articleList ){
+            if(item.getId() == id) {
+                return item;
+            }
+        }
+        return null;
     }
 }
