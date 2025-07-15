@@ -1,19 +1,13 @@
-import article.Article;
-import article.ArticleController;
-import  system.SystemController;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+package com.ll;
+import com.ll.article.ArticleController;
+import  com.ll.system.SystemController;
 
 public class APP {
-    Scanner sc;
     ArticleController articleController;
     SystemController systemController;
 
-    APP(Scanner sc) {
-        this.sc = sc;
-        articleController = new ArticleController(sc);
+    APP() {
+        articleController = new ArticleController();
         systemController = new SystemController();
     }
 
@@ -23,26 +17,20 @@ public class APP {
 
         while (true){
             System.out.print("명령) ");
-            String command = sc.nextLine().trim();
+            String command = Container.getSc().nextLine().trim();
 
             if (command.equals("종료")){
                 systemController.exit();
                 break;
             } else if (command.equals("등록")){
                 articleController.write();
-
             } else if (command.equals("목록")){
                 articleController.list();
-
             } else if (command.startsWith("삭제")){
                 articleController.delete(command);
-
             } else if (command.startsWith("수정")){
                 articleController.modify(command);
-
             }
         }
     }
-
-
 }

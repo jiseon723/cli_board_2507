@@ -1,4 +1,4 @@
-package article;
+package com.ll.article;
 
 public class Article {
     private int id;
@@ -10,15 +10,12 @@ public class Article {
         this.subject = subject;
         this.content = content;
     }
-
     int getId () {
         return this.id;
     }
-
     String getSubject () {
         return this.subject;
     }
-
     String getContent (){
         return this.content;
     }
@@ -28,6 +25,5 @@ public class Article {
     public  void setContent(String content){
         this.content = content;
     }
-
 }
 
