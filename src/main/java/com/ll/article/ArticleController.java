@@ -30,13 +30,7 @@ public class ArticleController {
         }
     }
 
-    public void delete(String command) {
-        String[] commandList = command.split("\\?", 2);
-        String[] paramsStr = commandList[1].split("=", 2);
-
-        String value = paramsStr[1];
-        int idx = Integer.parseInt(value);
-
+    public void delete(int idx) {
         Article article = _getFindById(idx);
 
         if(article == null){
@@ -47,13 +41,7 @@ public class ArticleController {
         }
     }
 
-    public void modify(String command) {
-        String[] commandList = command.split("\\?", 2);
-        String[] paramsStr = commandList[1].split("=", 2);
-
-        String value = paramsStr[1];
-        int idx = Integer.parseInt(value);
-
+    public void modify(int idx) {
         Article article = _getFindById(idx);
 
         if(article == null){
@@ -72,6 +60,7 @@ public class ArticleController {
             System.out.printf("%d번 게시물이 수정되었습니다.\n", idx);
         }
     }
+
     private Article _getFindById(int id) {
         for (Article item : articleList ){
             if(item.getId() == id) {
