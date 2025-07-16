@@ -1,5 +1,4 @@
 package com.ll.article;
-
 import java.util.Map;
 
 public class Article {
