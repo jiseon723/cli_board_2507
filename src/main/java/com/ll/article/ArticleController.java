@@ -1,8 +1,8 @@
 package com.ll.article;
 import com.ll.Container;
-import java.util.ArrayList;
-import java.util.List;
 import com.ll.Request;
+
+import java.util.List;
 
 public class ArticleController {
     ArticleService articleService;
@@ -23,6 +23,8 @@ public class ArticleController {
     }
 
     public void list() {
+        List<Article> articleList = articleService.findAll();
+
         System.out.println("번호 / 제목 / 내용");
         System.out.println("----------------------");
 
