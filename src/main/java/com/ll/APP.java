@@ -3,9 +3,6 @@ import com.ll.article.ArticleController;
 import com.ll.db.DBConnection;
 import  com.ll.system.SystemController;
 
-import java.util.List;
-import java.util.Map;
-
 public class APP {
     ArticleController articleController;
     SystemController systemController;
@@ -16,12 +13,7 @@ public class APP {
         DBConnection.DB_USER = "root";
         DBConnection.DB_PASSWORD = "";
 
-        DBConnection DBConnection = new DBConnection();
-        DBConnection.connect();
-
-        //DB가 연결되었는지 확인
-        List<Map<String, Object>> rs = DBConnection.selectRows("select * from article");
-        System.out.println(rs);
+        Container.getDBConnection().connect();
 
         articleController = new ArticleController();
         systemController = new SystemController();
